@@ -1,6 +1,5 @@
 package com.sandun.app;
 
-import com.kieferlam.javafxblur.Blur;
 import com.sandun.app.model.ParticleEffect;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
