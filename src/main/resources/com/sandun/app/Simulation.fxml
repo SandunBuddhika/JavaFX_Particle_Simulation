@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<GridPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" style="-fx-background-radius: 20; -fx-background-color: rgba(255,255,255);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sandun.app.ParticleController">
+    <columnConstraints>
+        <ColumnConstraints fx:id="canvasColumn" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="700.0" prefWidth="700.0" />
+        <ColumnConstraints maxWidth="250.0" minWidth="250.0" prefWidth="250.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+        <VBox fx:id="tpPane" maxWidth="250.0" prefHeight="200.0" prefWidth="250.0" GridPane.columnIndex="1">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="250.0" text="Simulation Settings" textAlignment="CENTER">
+                    <VBox.margin>
+                        <Insets bottom="28.0" top="28.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+            <Label text="Number Of Particles (10-2000)" />
+            <Slider fx:id="numParticlesSlider" onMouseDragged="#onNumParticleDrag" value="10.0">
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </Slider>
+            <Label fx:id="numOfParticles" alignment="CENTER" prefWidth="250.0" text="200">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <Label text="Speed">
+               <VBox.margin>
+                  <Insets top="12.0" />
+               </VBox.margin>
+            </Label>
+            <Slider fx:id="speedSlider" onMouseDragged="#onSpeedDrag" value="20.0">
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </Slider>
+            <Label text="Connection Max Length (40-250)">
+               <VBox.margin>
+                  <Insets top="12.0" />
+               </VBox.margin>
+            </Label>
+            <Slider fx:id="lengthSlider" onMouseDragged="#onMaxLengthDrag" value="24.0">
+               <padding>
+                  <Insets top="8.0" />
+               </padding>
+            </Slider>
+            <Label fx:id="maxLength" alignment="CENTER" prefWidth="250.0" text="80">
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Connection Line Width (1-10)">
+               <VBox.margin>
+                  <Insets top="12.0" />
+               </VBox.margin>
+            </Label>
+            <Slider fx:id="lineWidthSlider" onMouseDragged="#onLineWidth">
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </Slider>
+            <Label fx:id="lineWidthText" alignment="CENTER" prefWidth="250.0" text="1">
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </Label>
+            <CheckBox fx:id="connectionCheckBox" mnemonicParsing="false" onAction="#onConnectionCheckBox" selected="true" text="Connection">
+               <VBox.margin>
+                  <Insets top="12.0" />
+               </VBox.margin>
+            </CheckBox>
+            <Label text="Particle Radius (1-30)">
+               <VBox.margin>
+                  <Insets top="12.0" />
+               </VBox.margin>
+            </Label>
+            <Slider fx:id="radiusSlider" onMouseDragged="#onRadiusSliderDrag" value="35.0">
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </Slider>
+            <Label fx:id="particleRadius" alignment="CENTER" prefWidth="250.0" text="10">
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </Label>
+            <HBox prefHeight="17.0" prefWidth="218.0">
+               <children>
+                  <CheckBox fx:id="randomCheckBox" mnemonicParsing="false" onAction="#onRandomCheckBox" text="Random Radius" />
+                  <CheckBox fx:id="randomColorCheckBox" mnemonicParsing="false" onAction="#onRandomColorBox" text="Random Color">
+                     <HBox.margin>
+                        <Insets left="12.0" />
+                     </HBox.margin>
+                  </CheckBox>
+               </children>
+            </HBox>
+            <CheckBox fx:id="randomConnectionColorBox" disable="true" mnemonicParsing="false" onAction="#onConnectionRandomColorBox" text="Random Connection Color">
+               <VBox.margin>
+                  <Insets top="12.0" />
+               </VBox.margin>
+            </CheckBox>
+            <Label text="Particle Color">
+               <VBox.margin>
+                  <Insets top="12.0" />
+               </VBox.margin>
+            </Label>
+            <ColorPicker fx:id="particleColorPicker" onAction="#onParticleColorPicker">
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin></ColorPicker>
+            <Label layoutX="26.0" layoutY="374.0" text="Connections Color">
+               <VBox.margin>
+                  <Insets top="12.0" />
+               </VBox.margin>
+            </Label>
+            <ColorPicker fx:id="connectionColorPicker" layoutX="26.0" layoutY="399.0" onAction="#onConnectionColorPicker">
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </ColorPicker>
+            <Label layoutX="26.0" layoutY="436.0" text="Backgroud Color">
+               <VBox.margin>
+                  <Insets top="12.0" />
+               </VBox.margin>
+            </Label>
+            <ColorPicker fx:id="backgroundColorpicker" layoutX="26.0" layoutY="461.0" onAction="#onBackgroungColorPicker">
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+               <value>
+                  <Color />
+               </value>
+            </ColorPicker>
+            <HBox prefHeight="22.0" prefWidth="218.0">
+               <children>
+                  <CheckBox fx:id="blurCheckBox" mnemonicParsing="false" onAction="#onBlurCheckBox" text="Blur Effect" />
+                  <CheckBox fx:id="glowCheckBox" mnemonicParsing="false" onAction="#onGlowCheckBox" text="Glow Effect">
+                     <HBox.margin>
+                        <Insets left="18.0" />
+                     </HBox.margin>
+                  </CheckBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="12.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="27.0" prefWidth="218.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#onClose" style="-fx-background-color: red;" text="Close" textFill="WHITE" />
+                  <Button fx:id="programStateBtn" mnemonicParsing="false" onAction="#onPause" style="-fx-background-color: #25d520;" text="Pause" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="12.0" right="12.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+            </HBox>
+            </children>
+         <padding>
+            <Insets left="16.0" right="16.0" />
+         </padding>
+        </VBox>
+        <Canvas fx:id="myCanvas" height="800.0" width="1150.0" />
+    </children>
+</GridPane>
