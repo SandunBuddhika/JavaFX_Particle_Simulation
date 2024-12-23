@@ -22,7 +22,7 @@ This JavaFX application simulates particles that are connected by lines. The use
 * Glow effect
 
 # Requirement
-* Java Runtime environment
+* Java Runtime environment (Need have "JAVA_HOME" enviroment variable)
 
 
 
