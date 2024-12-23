@@ -21,6 +21,11 @@ This JavaFX application simulates particles that are connected by lines. The use
 * Blur effect
 * Glow effect
 
+# Requirement
+* Java Runtime environment
+
+
+
 # License
 
 This project is licensed under the MIT License. Refer to the LICENSE file for details.
